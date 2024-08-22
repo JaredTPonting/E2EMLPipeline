@@ -1,10 +1,10 @@
 import pandas as pd
-from sklearn.model_selection import train_test_split, GridSearchCV, cross_val_score
+from matplotlib import pyplot as plt
+from sklearn.model_selection import train_test_split, GridSearchCV
 from sklearn.linear_model import LogisticRegression
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score, classification_report
-from sklearn.pipeline import Pipeline
-import pickle as pkl
+from sklearn.metrics import confusion_matrix
 import joblib
 
 
