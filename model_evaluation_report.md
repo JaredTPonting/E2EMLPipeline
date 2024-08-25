@@ -43,8 +43,9 @@
 - **Best Model**: Random Forest
 - **Reason for Selection**:
   - Joint highest accuracy
-  - Most balanced precision and recall
+  - Overall balanced performance
   - Robust to overfitting
+  - Maintaining better recall compared to Gradient Boosting
 
 
 ## 5. Insights and Next Steps
