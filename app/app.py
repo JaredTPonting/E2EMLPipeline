@@ -7,7 +7,7 @@ app = Flask(__name__)
 
 model = joblib.load("app/best_model.pkl")
 
-expected_columns = ['Pclass', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked_C', 'Embarked_Q', 'Embarked_S']
+expected_columns = ['Pclass_2', 'Pclass_3', 'Sex_male', 'Age', 'Fare', 'Embarked_Q', 'Embarked_S']
 
 
 @app.route('/')
