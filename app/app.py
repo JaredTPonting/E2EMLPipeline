@@ -8,6 +8,11 @@ app = Flask(__name__)
 model = joblib.load("app/best_model.pkl")
 
 
+@app.route('/')
+def home():
+    return "Hello, Heroku!"
+
+
 @app.route('/predict', methods=['POST'])
 def predict():
     data = request.json
