@@ -7,6 +7,8 @@ app = Flask(__name__)
 
 model = joblib.load("app/best_model.pkl")
 
+expected_columns = ['Pclass', 'Age', 'SibSp', 'Parch', 'Fare', 'Embarked_C', 'Embarked_Q', 'Embarked_S']
+
 
 @app.route('/')
 def home():
@@ -15,10 +17,14 @@ def home():
 
 @app.route('/predict', methods=['POST'])
 def predict():
-    data = request.json
-    df = pd.DataFrame(data)
-    predictions = model.predict(df)
-    return jsonify(predictions.tolist())
+    data = request.get_json(force=True)
+
+    try:
+        df = pd.DataFrame([data['features']], columns=expected_columns)
+        predictions = model.predict(df)
+        return jsonify(predictions.tolist())
+    except Exception as e:
+        return str(e), 400
 
 
 if __name__ == '__main__':
